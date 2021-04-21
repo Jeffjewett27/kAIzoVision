@@ -1,0 +1,12 @@
+Split the videos out with:
+
+python .\ffmpeg-split.py -f ../videos/.source/rays1.mp4 -m manifest.json -e "-an -s 512x512"
+
+python ./extract-frames -C ../video-data/rangeTable.csv -e '-s 512x512 -vf "framestep=step=2"'
+
+1. read all json files
+2. read new files into frame
+2. for each new file:
+    a. download video
+    b. split frames
+    c. add to files list

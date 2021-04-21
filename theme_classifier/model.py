@@ -43,7 +43,7 @@ image_data_generator = ImageDataGenerator(
     zoom_range=.1
 )
 
-def get_generator(frame):
+def get_generator(frame,mlb):
     gen = image_data_generator.flow_from_dataframe(
         dataframe=frame,
         directory=imagedir,
@@ -87,7 +87,6 @@ def prepare_model():
 
 print(df.dtypes)
 train_df = df.loc[df['Train'].values]
-print("got here")
 valid_df = df[(df['Train'].values) == False]
 print(train_df)
 print(valid_df)

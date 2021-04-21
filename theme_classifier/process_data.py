@@ -22,13 +22,13 @@ def prepareVideo(id, frame):
     print(f"Video processed with image frame shape: {imgs.shape}")
     writeProcessedImgs(imgs)
     if (ret):
+        writeProcessedIds([id])
         processed.append(id)
+        appendRangeTable(subset)
+        frame.drop(subset,inplace=True)
     if (not keepvideosources):
         delete_video(id)
 
 for id in ids:
     if not (id in old_processed):
         prepareVideo(id, ranges)
-
-appendRangeTable(ranges)
-writeProcessedIds(processed)
