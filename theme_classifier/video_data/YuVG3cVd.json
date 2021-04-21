@@ -1,0 +1,62 @@
+{
+    "id": "YuVG3cVdCEA",
+    "url": "https://www.youtube.com/watch?v=YuVG3cVdCEA",
+    "channel": "Raysfire",
+    "ranges": [
+        {
+            "Start": 29,
+            "End": 60,
+            "Category": "dg"
+        },
+        {
+            "Start": 62,
+            "End": 72,
+            "Category": "menu"
+        },
+        {
+            "Start": 93,
+            "End": 126,
+            "Category": "dg"
+        },
+        {
+            "Start": 158,
+            "End": 227,
+            "Category": "dc"
+        },
+        {
+            "Start": 276,
+            "End": 315,
+            "Category": "1s"
+        },
+        {
+            "Start": 317,
+            "End": 328,
+            "Category": "wgn"
+        },
+        {
+            "Start": 351,
+            "End": 626,
+            "Category": "wc"
+        },
+        {
+            "Start": 642,
+            "End": 690,
+            "Category": "3d"
+        },
+        {
+            "Start": 712,
+            "End": 738,
+            "Category": "wc"
+        },
+        {
+            "Start": 740,
+            "End": 763,
+            "Category": "du"
+        },
+        {
+            "Start": 811,
+            "End": 819,
+            "Category": "wc"
+        }
+    ]
+}

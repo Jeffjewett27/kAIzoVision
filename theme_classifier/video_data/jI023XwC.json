@@ -1,0 +1,117 @@
+{
+    "id": "jI023XwCR04",
+    "url": "https://www.youtube.com/watch?v=jI023XwCR04",
+    "channel": "PangeaPanga",
+    "ranges": [
+        {
+            "Start": 2,
+            "End": 62,
+            "Category": "menu"
+        },
+        {
+            "Start": 64,
+            "End": 262,
+            "Category": "1u"
+        },
+        {
+            "Start": 264,
+            "End": 321,
+            "Category": "menu"
+        },
+        {
+            "Start": 323,
+            "End": 418,
+            "Category": "wu"
+        },
+        {
+            "Start": 424,
+            "End": 445,
+            "Category": "3u"
+        },
+        {
+            "Start": 447,
+            "End": 458,
+            "Category": "3j"
+        },
+        {
+            "Start": 480,
+            "End": 503,
+            "Category": "3j"
+        },
+        {
+            "Start": 563,
+            "End": 596,
+            "Category": "3u"
+        },
+        {
+            "Start": 598,
+            "End": 656,
+            "Category": "3u"
+        },
+        {
+            "Start": 674,
+            "End": 820,
+            "Category": "wa"
+        },
+        {
+            "Start": 837,
+            "End": 963,
+            "Category": "1hn"
+        },
+        {
+            "Start": 987,
+            "End": 1008,
+            "Category": "na"
+        },
+        {
+            "Start": 1010,
+            "End": 1041,
+            "Category": "nan"
+        },
+        {
+            "Start": 1115,
+            "End": 1122,
+            "Category": "na"
+        },
+        {
+            "Start": 1141,
+            "End": 1305,
+            "Category": "wu"
+        },
+        {
+            "Start": 1324,
+            "End": 1434,
+            "Category": "dc"
+        },
+        {
+            "Start": 1436,
+            "End": 1452,
+            "Category": "menu"
+        },
+        {
+            "Start": 1460,
+            "End": 1585,
+            "Category": "1d"
+        },
+        {
+            "Start": 1615,
+            "End": 1701,
+            "Category": "wc"
+        },
+        {
+            "Start": 1716,
+            "End": 1850,
+            "Category": "ng"
+        },
+        {
+            "Start": 1871,
+            "End": 1948,
+            "Category": "1s"
+        },
+        {
+            "Start": 1950,
+            "End": 1978,
+            "Category": "menu"
+        }
+    ]
+}

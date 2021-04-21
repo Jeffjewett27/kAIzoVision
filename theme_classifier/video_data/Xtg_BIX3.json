@@ -1,0 +1,62 @@
+{
+    "id": "Xtg_BIX3E78",
+    "url": "https://www.youtube.com/watch?v=Xtg_BIX3E78",
+    "channel": "Raysfire",
+    "ranges": [
+        {
+            "Start": 1,
+            "End": 12,
+            "Category": "ns"
+        },
+        {
+            "Start": 77,
+            "End": 105,
+            "Category": "1u"
+        },
+        {
+            "Start": 107,
+            "End": 126,
+            "Category": "1g"
+        },
+        {
+            "Start": 128,
+            "End": 165,
+            "Category": "wc"
+        },
+        {
+            "Start": 167,
+            "End": 202,
+            "Category": "wgn"
+        },
+        {
+            "Start": 204,
+            "End": 229,
+            "Category": "dg"
+        },
+        {
+            "Start": 254,
+            "End": 289,
+            "Category": "nj"
+        },
+        {
+            "Start": 428,
+            "End": 447,
+            "Category": "3s"
+        },
+        {
+            "Start": 480,
+            "End": 495,
+            "Category": "nc"
+        },
+        {
+            "Start": 497,
+            "End": 535,
+            "Category": "menu"
+        },
+        {
+            "Start": 558,
+            "End": 581,
+            "Category": "menu"
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "id": "QmVPmh10FVE",
+    "url": "https://www.youtube.com/watch?v=QmVPmh10FVE",
+    "channel": "Raysfire",
+    "ranges": [
+        {
+            "Start": 1,
+            "End": 52,
+            "Category": "dh"
+        },
+        {
+            "Start": 70,
+            "End": 98,
+            "Category": "3h"
+        },
+        {
+            "Start": 125,
+            "End": 152,
+            "Category": "wc"
+        },
+        {
+            "Start": 154,
+            "End": 181,
+            "Category": "ng"
+        },
+        {
+            "Start": 191,
+            "End": 239,
+            "Category": "wc"
+        },
+        {
+            "Start": 241,
+            "End": 276,
+            "Category": "wg"
+        },
+        {
+            "Start": 309,
+            "End": 331,
+            "Category": "wc"
+        },
+        {
+            "Start": 333,
+            "End": 356,
+            "Category": "ds"
+        },
+        {
+            "Start": 365,
+            "End": 412,
+            "Category": "wg"
+        },
+        {
+            "Start": 420,
+            "End": 492,
+            "Category": "ng"
+        },
+        {
+            "Start": 559,
+            "End": 589,
+            "Category": "menu"
+        }
+    ]
+}

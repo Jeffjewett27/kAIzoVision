@@ -1,0 +1,37 @@
+{
+    "id": "uSdL2GGk7cY",
+    "url": "https://www.youtube.com/watch?v=uSdL2GGk7cY",
+    "channel": "Raysfire",
+    "ranges": [
+        {
+            "Start": 22,
+            "End": 160,
+            "Category": "di"
+        },
+        {
+            "Start": 166,
+            "End": 256,
+            "Category": "du"
+        },
+        {
+            "Start": 258,
+            "End": 287,
+            "Category": "di"
+        },
+        {
+            "Start": 294,
+            "End": 325,
+            "Category": "du"
+        },
+        {
+            "Start": 357,
+            "End": 395,
+            "Category": "menu"
+        },
+        {
+            "Start": 401,
+            "End": 508,
+            "Category": "wi"
+        }
+    ]
+}

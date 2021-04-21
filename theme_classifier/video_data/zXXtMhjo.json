@@ -1,0 +1,77 @@
+{
+    "id": "zXXtMhjoOCU",
+    "url": "https://www.youtube.com/watch?v=zXXtMhjoOCU",
+    "channel": "PangeaPanga",
+    "ranges": [
+        {
+            "Start": 10,
+            "End": 29,
+            "Category": "nin"
+        },
+        {
+            "Start": 31,
+            "End": 93,
+            "Category": "nhn"
+        },
+        {
+            "Start": 95,
+            "End": 100,
+            "Category": "nin"
+        },
+        {
+            "Start": 102,
+            "End": 146,
+            "Category": "ws"
+        },
+        {
+            "Start": 148,
+            "End": 399,
+            "Category": "wg"
+        },
+        {
+            "Start": 413,
+            "End": 656,
+            "Category": "1in"
+        },
+        {
+            "Start": 658,
+            "End": 670,
+            "Category": "menu"
+        },
+        {
+            "Start": 672,
+            "End": 726,
+            "Category": "3g"
+        },
+        {
+            "Start": 728,
+            "End": 774,
+            "Category": "3u"
+        },
+        {
+            "Start": 818,
+            "End": 852,
+            "Category": "ws"
+        },
+        {
+            "Start": 862,
+            "End": 944,
+            "Category": "ng"
+        },
+        {
+            "Start": 966,
+            "End": 1138,
+            "Category": "1j"
+        },
+        {
+            "Start": 1150,
+            "End": 1327,
+            "Category": "1d"
+        },
+        {
+            "Start": 1332,
+            "End": 1513,
+            "Category": "ncn"
+        }
+    ]
+}

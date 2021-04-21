@@ -1,0 +1,77 @@
+{
+    "id": "0ZI1hJ2Kalo",
+    "url": "https://www.youtube.com/watch?v=0ZI1hJ2Kalo",
+    "channel": "Raysfire",
+    "ranges": [
+        {
+            "Start": 2,
+            "End": 26,
+            "Category": "1s"
+        },
+        {
+            "Start": 28,
+            "End": 47,
+            "Category": "di"
+        },
+        {
+            "Start": 76,
+            "End": 99,
+            "Category": "1a"
+        },
+        {
+            "Start": 101,
+            "End": 140,
+            "Category": "1u"
+        },
+        {
+            "Start": 151,
+            "End": 175,
+            "Category": "1s"
+        },
+        {
+            "Start": 177,
+            "End": 182,
+            "Category": "menu"
+        },
+        {
+            "Start": 184,
+            "End": 216,
+            "Category": "wc"
+        },
+        {
+            "Start": 218,
+            "End": 256,
+            "Category": "wd"
+        },
+        {
+            "Start": 283,
+            "End": 298,
+            "Category": "dd"
+        },
+        {
+            "Start": 322,
+            "End": 359,
+            "Category": "nc"
+        },
+        {
+            "Start": 361,
+            "End": 387,
+            "Category": "wa"
+        },
+        {
+            "Start": 412,
+            "End": 436,
+            "Category": "1u"
+        },
+        {
+            "Start": 438,
+            "End": 469,
+            "Category": "dc"
+        },
+        {
+            "Start": 498,
+            "End": 528,
+            "Category": "dh"
+        }
+    ]
+}
