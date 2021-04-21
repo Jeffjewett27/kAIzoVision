@@ -32,3 +32,5 @@ def prepareVideo(id, frame):
 for id in ids:
     if not (id in old_processed):
         prepareVideo(id, ranges)
+
+print ("processed " + str(len(processed)) + " videos")

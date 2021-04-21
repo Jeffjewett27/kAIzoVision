@@ -28,6 +28,8 @@ def extendFrameCategories(frame):
     frame.loc[trainNightIndex, "Train"] = True"""
 
 def setTrainColumn(frame, test_size):
+    if (len(frame.axes[0]) == 0):
+        return frame
     train, test = train_test_split(frame, test_size=test_size,random_state=27)
     train.loc[:,'Train'] = True
     test.loc[:,'Train'] = False
@@ -65,6 +67,7 @@ def writeProcessedImgs(imgs, overwrite=False):
 def getJSONFileIds(onlyNew=False):
     json_dir = os.path.join(Path(__file__).parent, 'video_data')
     ids = {pos_json[:-5] for pos_json in os.listdir(json_dir) if pos_json.endswith('.json')}
+    print(ids)
     if (onlyNew):
         ids = ids.difference(readRangeIds())
     return ids
