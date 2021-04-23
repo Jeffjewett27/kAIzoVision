@@ -1,0 +1,6 @@
+theme_classifier/__pycache__/
+
+theme_classifier/videos/source/
+theme_classifier/videos/images/
+
+theme_classifier/video_data/imageTable.csv
