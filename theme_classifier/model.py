@@ -10,7 +10,7 @@ from pathlib import Path
 
 table_path = os.path.join(Path(__file__).parent, 'video_data', 'imageTable.csv')
 #imagedir = os.path.join(Path(__file__).parent, 'videos', 'images')
-imagedir = "/content/kAIzoVision/theme_classifier/videos/images"
+imagedir = "/content/kAIzoVision/theme_classifier/videos/images/"
 
 # Create the Scikit-learn MultiLabelBinarizer
 labels = [("menu",),tuple(decode_styles.values()),tuple(decode_themes.values()),("day","night")]
