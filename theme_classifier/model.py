@@ -92,8 +92,8 @@ print(train_df)
 print(valid_df)
 
 #get the generators
-train_generator = get_generator(train_df)
-valid_generator = get_generator(valid_df)
+train_generator = get_generator(train_df, mlb)
+valid_generator = get_generator(valid_df, mlb)
 
 print("got here2")
 
