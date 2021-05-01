@@ -85,6 +85,7 @@ def prepare_model():
     return model
 
 
+print(imgdir)
 print(df.dtypes)
 train_df = df.loc[df['Train'].values]
 valid_df = df[(df['Train'].values) == False]
