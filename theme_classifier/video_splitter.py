@@ -19,17 +19,14 @@ imgdir = os.path.join(videodir, "images")
 traindir = os.path.join(videodir, "train_videos")
 testdir = os.path.join(videodir, "test_videos")
 
-"""def rangeFilePath(row):
-    print("rfp")
-    train = traindir if row['Train'] else testdir
-    category = category_filename(row['Category'])
-    filename = row['Id'] + "_" + str(row['VideoIndex']) + "_%04d.jpg"
-    path = os.path.join(train,category,filename)
-    return path"""
+projdir = Path(__file__)
+relvideodir = "./videos"
+relimgdir = os.path.join(videodir, "images")
+
 def rangeFilePath(row, category):
     category = category_filename(category)
     filename = row['Id'] + "_" + str(row['VideoIndex'])
-    path = os.path.join(category,filename)
+    path = category + "/" + filename
     return path
 
 def split_video(id, manifest):
@@ -39,6 +36,7 @@ def split_video(id, manifest):
     sourceFile = os.path.join(videodir, "source", id + ".mp4")
     all_good = True
     for index, row in manifest.iterrows():
+        print(row)
         split_str = ""
         split_args = []
         try:
@@ -77,7 +75,7 @@ def split_video(id, manifest):
             logging.error("New Error")
             logging.error(row)
             logging.error(e)
-            all_good = False
+            #all_good = False
 
     return (all_good, images)
 
@@ -93,9 +91,9 @@ def regenerateImageTable():
     for index, row in ranges.iterrows():
         category = decode_category(row['Category'])
         filepath = rangeFilePath(row,category)
-        glb = glob(os.path.join(imgdir, filepath + '*.jpg'))
+        glb = glob(os.path.join(relimgdir, filepath + '*.jpg'))
         imgs = imgs.append(pd.DataFrame({
-            "Filename": [x[len(imgdir)+1:] for x in glb],
+            "Filename": [x[len(imgdir)+1:].replace("\\","/") for x in glb],
             "Style": category[0],
             "Theme": category[1],
             "Time": category[2],

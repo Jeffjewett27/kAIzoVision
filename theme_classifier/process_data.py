@@ -18,14 +18,14 @@ processed = []
 def prepareVideo(id, frame):
     download_video(id)
     subset = frame[frame["Id"] == id]
-    (ret,imgs) = split_video(id, frame)
+    (ret,imgs) = split_video(id, subset)
     print(f"Video processed with image frame shape: {imgs.shape}")
     writeProcessedImgs(imgs)
     if (ret):
         writeProcessedIds([id])
         processed.append(id)
         appendRangeTable(subset)
-        frame.drop(subset,inplace=True)
+        #frame.drop(subset,inplace=True)
     if (not keepvideosources):
         delete_video(id)
 
