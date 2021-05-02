@@ -60,6 +60,8 @@ def writeProcessedImgs(imgs, overwrite=False):
     if (not overwrite):
         images = pd.read_csv(table_path)
         images = images.append(imgs)
+        images.drop("index",columns=1,inplace=True)
+        images.reset_index(inplace=True)
         images.to_csv(table_path, index=False)
     else:
         imgs.to_csv(table_path,index=False)
