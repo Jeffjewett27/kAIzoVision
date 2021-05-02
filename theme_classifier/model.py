@@ -112,7 +112,7 @@ model.fit(
     train_generator,
     validation_data = valid_generator,
     epochs = 5,
-    steps_per_epoch = 1000,
-    validation_steps = 150
+    steps_per_epoch = 500,
+    validation_steps = 100
     callbacks = [checkpointer, early_stopper, tensorboard]
 )
