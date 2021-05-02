@@ -1,5 +1,6 @@
 import pandas as pd
 from keras.preprocessing.image import ImageDataGenerator
+from keras.callbacks import ModelCheckpoint, TensorBoard, EarlyStopping
 from sklearn.preprocessing import MultiLabelBinarizer
 from categories import *
 import numpy as np
@@ -23,10 +24,9 @@ df = pd.read_csv(table_path)
 
 # The helper function
 def multilabel_flow_from_dataframe(data_generator, mlb):
-    print("mffd called")
+    assert isinstance(mlb, MultiLabelBinarizer), \
+            "MultiLabelBinarizer is required."
     for x, y in data_generator:
-        assert isinstance(mlb, MultiLabelBinarizer), \
-               "MultiLabelBinarizer is required."
         indices = y.astype(np.int).tolist()
         rows = df.iloc[indices]
         tup = rows.apply(lambda r: strip_tuple((r['Style'],r['Theme'],r['Time'])), axis=1)
@@ -51,7 +51,8 @@ def get_generator(frame,mlb):
         y_col='index',
         class_mode='raw',
         target_size=(512,512),
-        batch_size=32
+        batch_size=32,
+        shuffle=True
     )
     return multilabel_flow_from_dataframe(gen, mlb)
 
@@ -84,6 +85,18 @@ def prepare_model():
     )
     return model
 
+# Helper: Save the model.
+checkpointer = ModelCheckpoint(
+    filepath=os.path.join('model', 'checkpoints', 'theme.{epoch:03d}-{val_loss:.2f}.hdf5'),
+verbose=1,
+save_best_only=True)
+
+# Helper: Stop when we stop learning.
+early_stopper = EarlyStopping(patience=10)
+
+# Helper: TensorBoard
+tensorboard = TensorBoard(log_dir=os.path.join('model', 'logs'))
+
 
 print(imagedir)
 print(df.dtypes)
@@ -96,7 +109,14 @@ print(valid_df)
 train_generator = get_generator(train_df, mlb)
 valid_generator = get_generator(valid_df, mlb)
 
-print("got here2")
+#print(len(train_generator))
+count = 1
+for x,y in train_generator:
+    count += 1
+    #if (count % 10000) == 0:
+    print(count,y)
+
+print("count", count)
 
 # Prepare the model
 model = prepare_model()
@@ -105,5 +125,7 @@ print("gothere")
 model.fit(
     train_generator,
     validation_data = valid_generator,
-    epochs = 5
+    epochs = 5,
+    steps_per_epoch = 1000,
+    callbacks = [checkpointer, early_stopper, tensorboard]
 )
