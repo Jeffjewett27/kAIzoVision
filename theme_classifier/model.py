@@ -118,9 +118,9 @@ def fit_model(model, train_generator, valid_generator):
     model.fit(
         train_generator,
         validation_data = valid_generator,
-        epochs = 5,
-        steps_per_epoch = 500,
-        validation_steps = 100,
+        epochs = 20,
+        steps_per_epoch = 2000,
+        validation_steps = 400,
         callbacks = [checkpointer, early_stopper, tensorboard]
     )
 
@@ -145,7 +145,7 @@ def get_trained_model(weights=None):
         model.save("model/theme_"+str(datetime.now()).replace(" ","_")+".h5")
     else:
         print("loading weights from: " + weights)
-        #model.load_weights(weights)
+        model.load_weights(weights)
 
     return model
 
