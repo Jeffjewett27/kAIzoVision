@@ -113,5 +113,6 @@ model.fit(
     validation_data = valid_generator,
     epochs = 5,
     steps_per_epoch = 1000,
+    validation_steps = 150
     callbacks = [checkpointer, early_stopper, tensorboard]
 )
