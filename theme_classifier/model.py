@@ -40,7 +40,7 @@ def mlb_inverse_transform(pred):
     return binarized
 
 # The helper function
-def multilabel_flow_from_dataframe(data_generator, mlb):
+def multilabel_flow_from_dataframe(data_generator, mlb, df):
     assert isinstance(mlb, MultiLabelBinarizer), \
             "MultiLabelBinarizer is required."
     for x, y in data_generator:
@@ -60,7 +60,7 @@ image_data_generator = ImageDataGenerator(
     zoom_range=.1
 )
 
-def get_generator(frame,mlb):
+def get_generator(frame,mlb, df):
     gen = image_data_generator.flow_from_dataframe(
         dataframe=frame,
         directory=imagedir,
@@ -71,7 +71,7 @@ def get_generator(frame,mlb):
         batch_size=32,
         shuffle=True
     )
-    return multilabel_flow_from_dataframe(gen, mlb)
+    return multilabel_flow_from_dataframe(gen, mlb, df)
 
 def prepare_model():
     model = keras.Sequential([
@@ -138,8 +138,8 @@ def get_trained_model(weights=None):
         valid_df = df[(df['Train'].values) == False]
 
         #get the generators
-        train_generator = get_generator(train_df, mlb)
-        valid_generator = get_generator(valid_df, mlb)
+        train_generator = get_generator(train_df, mlb, df)
+        valid_generator = get_generator(valid_df, mlb, df)
 
         fit_model(model, train_generator, valid_generator)
         model.save("model/theme_"+str(datetime.now()).replace(" ","_")+".h5")
