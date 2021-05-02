@@ -1,6 +1,7 @@
-theme_classifier/__pycache__/
-
-theme_classifier/videos/source/
-theme_classifier/videos/images/
-
-theme_classifier/video_data/*.csv
+./theme_classifier/videos
+*/__pycache__
+.vscode
+*.log
+./theme_classifier/videos/*.jpg
+./theme_classifier/videos/*.mp4
+./theme_classifier/*.zip

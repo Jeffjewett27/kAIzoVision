@@ -19,9 +19,8 @@ imgdir = os.path.join(videodir, "images")
 traindir = os.path.join(videodir, "train_videos")
 testdir = os.path.join(videodir, "test_videos")
 
-projdir = Path(__file__)
 relvideodir = "./videos"
-relimgdir = os.path.join(videodir, "images")
+relimgdir = os.path.join(relvideodir, "images")
 
 def rangeFilePath(row, category):
     category = category_filename(category)
