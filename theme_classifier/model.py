@@ -97,26 +97,12 @@ early_stopper = EarlyStopping(patience=10)
 # Helper: TensorBoard
 tensorboard = TensorBoard(log_dir=os.path.join('model', 'logs'))
 
-
-print(imagedir)
-print(df.dtypes)
 train_df = df.loc[df['Train'].values]
 valid_df = df[(df['Train'].values) == False]
-print(train_df)
-print(valid_df)
 
 #get the generators
 train_generator = get_generator(train_df, mlb)
 valid_generator = get_generator(valid_df, mlb)
-
-#print(len(train_generator))
-count = 1
-for x,y in train_generator:
-    count += 1
-    #if (count % 10000) == 0:
-    print(count,y)
-
-print("count", count)
 
 # Prepare the model
 model = prepare_model()
