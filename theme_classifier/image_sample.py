@@ -41,4 +41,5 @@ def sample_images(images):
 
     under.append(over).to_csv("video_data/sampledImages.csv")'''
     samp = images.sample(frac=1, replace=True, weights= 1/images.Weight)
-    samp.to_csv("video_data/sampledImages.csv")
+    samp = samp.drop(["index"], axis=1).reset_index(drop=True).reset_index()
+    samp.to_csv("video_data/sampledImages.csv", index=False)
