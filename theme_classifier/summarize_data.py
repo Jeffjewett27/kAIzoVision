@@ -2,8 +2,10 @@ import os, json
 import pandas as pd
 import numpy as np
 from categories import *
+from image_sample import *
 from pathlib import Path
 from sklearn.model_selection import train_test_split
+from video_splitter import minClipLength
 
 def extendFrameCategories(frame):
     tup = frame['Category'].map(lambda x: decode_category(x))
@@ -29,6 +31,7 @@ def extendFrameCategories(frame):
 
 def setTrainColumn(frame, test_size):
     if (len(frame.axes[0]) == 0):
+        frame['Train'] = True
         return frame
     train, test = train_test_split(frame, test_size=test_size,random_state=27)
     train.loc[:,'Train'] = True
@@ -41,27 +44,43 @@ def setTrainColumn(frame, test_size):
 
 def readRangeIds():
     table_path = os.path.join(Path(__file__).parent, 'video_data', 'rangeTable.csv')
+    if (not os.path.exists(table_path)):
+        return set()
     videos = pd.read_csv(table_path)
     return set(videos['Id'].unique())
 
 def readProcessedIds():
     table_path = os.path.join(Path(__file__).parent, 'video_data', 'processedTable.csv')
+    if (not os.path.exists(table_path)):
+        return set()
     videos = pd.read_csv(table_path)
     return set(videos['Id'].unique())
 
 def writeProcessedIds(ids):
+    new_videos = pd.Series(ids)
+
     table_path = os.path.join(Path(__file__).parent, 'video_data', 'processedTable.csv')
-    videos = pd.read_csv(table_path)['Id']
-    videos = pd.DataFrame(videos.append(pd.Series(ids)).unique(), columns=['Id'])
+    if (os.path.exists(table_path)):
+        videos = pd.read_csv(table_path)['Id']
+        videos = pd.DataFrame(videos.append(new_videos).unique(), columns=['Id'])
+    else:
+        videos = pd.DataFrame(new_videos, columns=['Id'])
     videos.to_csv(table_path, index=False)
 
+def readProcessedImgs():
+    table_path = os.path.join(Path(__file__).parent, 'video_data', 'imageTable.csv')
+    if (os.path.exists(table_path)):
+        return pd.read_csv(table_path)
+    return pd.DataFrame()
+    
 def writeProcessedImgs(imgs, overwrite=False):
     table_path = os.path.join(Path(__file__).parent, 'video_data', 'imageTable.csv')
-    if (not overwrite):
+    if (not overwrite and os.path.exists(table_path)):
         images = pd.read_csv(table_path)
         images = images.append(imgs)
-        images.drop("index",columns=1,inplace=True)
-        images.reset_index(inplace=True)
+        print(images.head())
+        #images.drop("index",columns=1,inplace=True)
+        #images.reset_index(inplace=True)
         images.to_csv(table_path, index=False)
     else:
         imgs.to_csv(table_path,index=False)
@@ -69,14 +88,13 @@ def writeProcessedImgs(imgs, overwrite=False):
 def getJSONFileIds(onlyNew=False):
     json_dir = os.path.join(Path(__file__).parent, 'video_data')
     ids = {pos_json[:-5] for pos_json in os.listdir(json_dir) if pos_json.endswith('.json')}
-    print(ids)
     if (onlyNew):
-        ids = ids.difference(readRangeIds())
+        ids = ids.difference(readProcessedIds())
     return ids
 
 def getRangeFrame(ids):
     json_dir = os.path.join(Path(__file__).parent, 'video_data')
-    ranges = pd.DataFrame(columns=['Start','End','Category','Id','VideoIndex','Channel','Style','Theme','Time'])
+    ranges = pd.DataFrame(columns=['Start','End','Category','Id','VideoIndex','Channel','Style','Theme','Time','Length'])
 
     for id in ids:
         fname = id + ".json"
@@ -86,14 +104,16 @@ def getRangeFrame(ids):
             frame = pd.DataFrame(obj.get("ranges"))
             frame['Id'] = obj.get('id')
             frame['Channel'] = obj.get('channel')
+            frame['Length'] = frame['End'] - frame['Start']
             frame.reset_index(inplace=True)
             frame.rename(columns={'index':'VideoIndex'}, inplace=True)
             extendFrameCategories(frame)
 
             ranges = ranges.append(frame, ignore_index=True)
 
-    #setTrainColumn(ranges, 0.7, 0.9)
     ranges = setTrainColumn(ranges, 0.2)
+    
+    ranges.loc[:,"Weight"] = ranges.apply(row_weight_function(ranges[ranges.Train]), axis=1)
     return ranges
 
 def appendRangeTable(frame):
@@ -102,6 +122,7 @@ def appendRangeTable(frame):
     if (os.path.exists(table_path)):
         ranges = pd.read_csv(table_path).append(frame, ignore_index=True)
     ranges.to_csv(table_path, index=False)
+
 
 #print (ranges.head(20))
 #print (ranges.describe())

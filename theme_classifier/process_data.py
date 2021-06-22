@@ -2,9 +2,11 @@ from download_sources import *
 from summarize_data import *
 from create_folders import createImgDirs
 from video_splitter import split_video
+from image_sample import sample_images
 import sys
 
 keepvideosources = (len(sys.argv) > 1) and bool(sys.argv[1])
+keepvideosources = True
 print(keepvideosources)
 
 #createTrainTestDirs()
@@ -34,3 +36,6 @@ for id in ids:
         prepareVideo(id, ranges)
 
 print ("processed " + str(len(processed)) + " videos")
+
+images = readProcessedImgs()
+sample_images(images)

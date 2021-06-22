@@ -8,11 +8,14 @@ import logging
 from categories import *
 from summarize_data import *
 
-minClipLength = 5
+minClipLength = 2
 maxClipLength = 20
 skipFactor = 4
+shortThresh = 10
 
-logging.basicConfig(filename='video_splitter.log', level=logging.DEBUG)
+logging.basicConfig(filename='video_splitter_debug.log', level=logging.DEBUG)
+logging.basicConfig(filename='video_splitter_info.log', level=logging.INFO)
+logging.basicConfig(filename='video_splitter_error.log', level=logging.ERROR)
 
 videodir = os.path.join(Path(__file__).parent, "videos")
 imgdir = os.path.join(videodir, "images")
@@ -34,29 +37,35 @@ def split_video(id, manifest):
 
     sourceFile = os.path.join(videodir, "source", id + ".mp4")
     all_good = True
+    good_count = 0
     for index, row in manifest.iterrows():
         print(row)
         split_str = ""
         split_args = []
         try:
             split_start = row["Start"]
-            split_end = row["End"]
-            split_length = split_end - split_start
-            if (split_length < minClipLength):
+            length = row["Length"]
+            if (length < minClipLength):
+                logging.info("skipping id: " + id + ", " + str(row["VideoIndex"]) + " because it is too short: " + str(length))
                 continue
-            skip_step = max((skipFactor * split_length) // maxClipLength, 1)
+            if (length > shortThresh):
+                #trim a second off both ends, since this often has wrong labels
+                split_start += 1
+                length -= 1
+            skip_step = int(max((skipFactor * row["Weight"] * length / maxClipLength, 1)))
+
             extra = f'-s 512x512 -vf "framestep=step={skip_step}"'
 
             category = decode_category(row["Category"])
             filepath = rangeFilePath(row,category)
             glb = glob(filepath + '*.jpg')
             if (len(glb) > 0):
-                print("skipping id: " + id + ", " + str(row["VideoIndex"]) + " at " + filepath)
+                logging.info("skipping id: " + id + ", " + str(row["VideoIndex"]) + " at " + filepath)
                 continue
             
             split_cmd = ["ffmpeg", "-i", sourceFile] + shlex.split(extra)
             split_args += ["-ss", str(split_start), "-t",
-                str(split_length), os.path.join(imgdir, filepath + "_%04d.jpg")]
+                str(length), os.path.join(imgdir, filepath + "_%04d.jpg")]
             print("########################################################")
             print("About to run : "+" ".join(split_cmd+split_args))
             print("########################################################")
@@ -64,18 +73,21 @@ def split_video(id, manifest):
 
             glb = glob(os.path.join(imgdir, filepath + '*.jpg'))
             images = images.append(pd.DataFrame({
-                "Filename": glb[len(imgdir)+1:],
+                "Filename": [os.path.relpath(x,imgdir) for x in glb],
                 "Style": category[0],
                 "Theme": category[1],
                 "Time": category[2],
                 "Train": row["Train"]
             }).reset_index())
+            logging.info(f"Completed {row['Style']}, {row['Theme']}, {row['Time']}, {row['Train']} in {id}, {row['VideoIndex']} with {len(glb)} frames")
+            good_count += 1
         except Exception as e:
             logging.error("New Error")
             logging.error(row)
             logging.error(e)
+            print(e)
             #all_good = False
-
+    logging.info(f"Successfully processed {good_count} ranges for video {id}")
     return (all_good, images)
 
 def regenerateImageTable():
@@ -91,8 +103,9 @@ def regenerateImageTable():
         category = decode_category(row['Category'])
         filepath = rangeFilePath(row,category)
         glb = glob(os.path.join(relimgdir, filepath + '*.jpg'))
+        #print(os.path.relpath(glb[0],imgdir))
         imgs = imgs.append(pd.DataFrame({
-            "Filename": [x[len(imgdir)+1:].replace("\\","/") for x in glb],
+            "Filename": [os.path.relpath(x,imgdir) for x in glb],
             "Style": category[0],
             "Theme": category[1],
             "Time": category[2],
