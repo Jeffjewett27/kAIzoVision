@@ -130,8 +130,7 @@ def prepare_model():
     model.compile(
         optimizer=keras.optimizers.Adam(epsilon=0.01),
         loss='binary_crossentropy',
-        metrics=['binary_accuracy', class_accuracy],
-        run_eagerly=True
+        metrics=['binary_accuracy', class_accuracy]
     )
     return model
 

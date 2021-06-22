@@ -1,1 +1,262 @@
-Start,End,Category,Id,VideoIndex,Channel,Style,Theme,Time,Train
+Start,End,Category,Id,VideoIndex,Channel,Style,Theme,Time,Length,Train,Weight
+22,160,di,uSdL2GGk7cY,0,Raysfire,sm3dw,ice,day,138,True,1.409402381087847
+401,508,wi,uSdL2GGk7cY,5,Raysfire,smw,ice,day,107,True,2.238462605257169
+166,256,du,uSdL2GGk7cY,1,Raysfire,sm3dw,underground,day,90,True,3.523505952719618
+294,325,du,uSdL2GGk7cY,3,Raysfire,sm3dw,underground,day,31,True,3.523505952719618
+357,395,menu,uSdL2GGk7cY,4,Raysfire,menu,,,38,True,0.6057692307692308
+258,287,di,uSdL2GGk7cY,2,Raysfire,sm3dw,ice,day,29,True,1.409402381087847
+1007,1034,menu,f6ouZR_ORgo,5,PangeaPanga,menu,,,27,True,0.6057692307692308
+1,19,menu,f6ouZR_ORgo,0,PangeaPanga,menu,,,18,True,0.6057692307692308
+24,333,1jn,f6ouZR_ORgo,1,PangeaPanga,smb1,jungle,night,309,True,0.3069371052856168
+335,362,menu,f6ouZR_ORgo,2,PangeaPanga,menu,,,27,False,1.0
+778,1005,1u,f6ouZR_ORgo,4,PangeaPanga,smb1,underground,day,227,False,1.0
+364,776,1u,f6ouZR_ORgo,3,PangeaPanga,smb1,underground,day,412,False,1.0
+77,105,1u,Xtg_BIX3E78,1,Raysfire,smb1,underground,day,28,True,3.2126083686561224
+254,289,nj,Xtg_BIX3E78,6,Raysfire,nsmb,jungle,day,35,True,2.487180672507966
+480,495,nc,Xtg_BIX3E78,8,Raysfire,nsmb,castle,day,15,True,4.808549300182067
+558,581,menu,Xtg_BIX3E78,10,Raysfire,menu,,,23,True,0.6057692307692308
+107,126,1g,Xtg_BIX3E78,2,Raysfire,smb1,grass,day,19,True,5.033086444227925
+167,202,wgn,Xtg_BIX3E78,4,Raysfire,smw,grass,night,35,True,1.6752825230427857
+204,229,dg,Xtg_BIX3E78,5,Raysfire,sm3dw,grass,day,25,True,5.520159325927401
+128,165,wc,Xtg_BIX3E78,3,Raysfire,smw,castle,day,37,True,5.409617962704825
+428,447,3s,Xtg_BIX3E78,7,Raysfire,smb3,sky,day,19,True,0.8981485761834321
+497,535,menu,Xtg_BIX3E78,9,Raysfire,menu,,,38,False,1.0
+1,12,ns,Xtg_BIX3E78,0,Raysfire,nsmb,sky,day,11,False,1.0
+642,690,3d,YuVG3cVdCEA,7,Raysfire,smb3,desert,day,48,True,1.0363252802116525
+158,227,dc,YuVG3cVdCEA,3,Raysfire,sm3dw,castle,day,69,True,3.4060557542956307
+351,626,wc,YuVG3cVdCEA,6,Raysfire,smw,castle,day,275,True,5.409617962704825
+317,328,wgn,YuVG3cVdCEA,5,Raysfire,smw,grass,night,11,True,1.6752825230427857
+29,60,dg,YuVG3cVdCEA,0,Raysfire,sm3dw,grass,day,31,True,5.520159325927401
+811,819,wc,YuVG3cVdCEA,10,Raysfire,smw,castle,day,8,True,5.409617962704825
+740,763,du,YuVG3cVdCEA,9,Raysfire,sm3dw,underground,day,23,True,3.523505952719618
+93,126,dg,YuVG3cVdCEA,2,Raysfire,sm3dw,grass,day,33,True,5.520159325927401
+62,72,menu,YuVG3cVdCEA,1,Raysfire,menu,,,10,True,0.6057692307692308
+712,738,wc,YuVG3cVdCEA,8,Raysfire,smw,castle,day,26,True,5.409617962704825
+276,315,1s,YuVG3cVdCEA,4,Raysfire,smb1,sky,day,39,False,1.0
+845,899,wh,6kj1CljrOSs,6,PangeaPanga,smw,ghosthouse,day,54,True,2.4250011556952664
+1181,1307,ws,6kj1CljrOSs,9,PangeaPanga,smw,sky,day,126,True,2.4250011556952664
+162,187,wi,6kj1CljrOSs,1,PangeaPanga,smw,ice,day,25,True,2.238462605257169
+189,296,1c,6kj1CljrOSs,2,PangeaPanga,smb1,castle,day,107,True,3.105521423034252
+966,1169,wh,6kj1CljrOSs,8,PangeaPanga,smw,ghosthouse,day,203,True,2.4250011556952664
+901,964,whn,6kj1CljrOSs,7,PangeaPanga,smw,ghosthouse,night,63,True,0.4633760170118343
+7,41,wc,6kj1CljrOSs,0,PangeaPanga,smw,castle,day,34,True,5.409617962704825
+643,836,3c,6kj1CljrOSs,5,PangeaPanga,smb3,castle,day,193,True,2.0035622084091944
+306,591,di,6kj1CljrOSs,3,PangeaPanga,sm3dw,ice,day,285,False,1.0
+601,632,ndn,6kj1CljrOSs,4,PangeaPanga,nsmb,desert,night,31,False,1.0
+595,621,dc,ZtVdrcXYDzQ,11,PangeaPanga,sm3dw,castle,day,26,True,3.4060557542956307
+630,666,1w,ZtVdrcXYDzQ,12,PangeaPanga,smb1,underwater,day,36,True,0.1070869456218707
+818,1079,1u,ZtVdrcXYDzQ,13,PangeaPanga,smb1,underground,day,261,True,3.2126083686561224
+155,206,1u,ZtVdrcXYDzQ,3,PangeaPanga,smb1,underground,day,51,True,3.2126083686561224
+39,133,ng,ZtVdrcXYDzQ,1,PangeaPanga,nsmb,grass,day,94,True,7.793166107191626
+3,37,menu,ZtVdrcXYDzQ,0,PangeaPanga,menu,,,34,True,0.6057692307692308
+135,148,menu,ZtVdrcXYDzQ,2,PangeaPanga,menu,,,13,True,0.6057692307692308
+381,404,wgn,ZtVdrcXYDzQ,6,PangeaPanga,smw,grass,night,23,True,1.6752825230427857
+465,476,1d,ZtVdrcXYDzQ,8,PangeaPanga,smb1,desert,day,11,True,1.6063041843280612
+491,503,wg,ZtVdrcXYDzQ,9,PangeaPanga,smw,grass,day,12,True,8.767311870590579
+415,450,na,ZtVdrcXYDzQ,7,PangeaPanga,nsmb,airship,day,35,True,1.9897445380063723
+208,236,menu,ZtVdrcXYDzQ,4,PangeaPanga,menu,,,28,False,1.0
+238,311,1g,ZtVdrcXYDzQ,5,PangeaPanga,smb1,grass,day,73,False,1.0
+1099,1335,nc,ZtVdrcXYDzQ,14,PangeaPanga,nsmb,castle,day,236,False,1.0
+520,582,3an,ZtVdrcXYDzQ,10,PangeaPanga,smb3,airship,night,62,False,1.0
+1332,1423,wc,yrh5IKPiNZs,19,Grand POOBear,smw,castle,day,91,True,5.409617962704825
+721,748,nu,yrh5IKPiNZs,9,Grand POOBear,nsmb,underground,day,27,True,4.974361345015932
+1307,1330,3jn,yrh5IKPiNZs,18,Grand POOBear,smb3,jungle,night,23,True,0.1980239388939463
+873,898,nu,yrh5IKPiNZs,13,Grand POOBear,nsmb,underground,day,25,True,4.974361345015932
+1207,1290,nj,yrh5IKPiNZs,17,Grand POOBear,nsmb,jungle,day,83,True,2.487180672507966
+1568,1638,na,yrh5IKPiNZs,21,Grand POOBear,nsmb,airship,day,70,True,1.9897445380063723
+715,719,nun,yrh5IKPiNZs,8,Grand POOBear,nsmb,underground,night,4,True,0.9505149066909424
+1150,1186,nun,yrh5IKPiNZs,16,Grand POOBear,nsmb,underground,night,36,True,0.9505149066909424
+466,643,nc,yrh5IKPiNZs,5,Grand POOBear,nsmb,castle,day,177,True,4.808549300182067
+84,118,ng,yrh5IKPiNZs,1,Grand POOBear,nsmb,grass,day,34,True,7.793166107191626
+900,908,nun,yrh5IKPiNZs,14,Grand POOBear,nsmb,underground,night,8,True,0.9505149066909424
+1640,1779,nc,yrh5IKPiNZs,22,Grand POOBear,nsmb,castle,day,139,True,4.808549300182067
+670,701,nu,yrh5IKPiNZs,7,Grand POOBear,nsmb,underground,day,31,True,4.974361345015932
+838,859,nun,yrh5IKPiNZs,12,Grand POOBear,nsmb,underground,night,21,True,0.9505149066909424
+292,372,ns,yrh5IKPiNZs,3,Grand POOBear,nsmb,sky,day,80,True,2.155556582840237
+1432,1547,1g,yrh5IKPiNZs,20,Grand POOBear,smb1,grass,day,115,True,5.033086444227925
+13,82,3j,yrh5IKPiNZs,0,Grand POOBear,smb3,jungle,day,69,False,1.0
+1035,1051,nun,yrh5IKPiNZs,15,Grand POOBear,nsmb,underground,night,16,False,1.0
+792,797,nun,yrh5IKPiNZs,11,Grand POOBear,nsmb,underground,night,5,False,1.0
+761,776,nu,yrh5IKPiNZs,10,Grand POOBear,nsmb,underground,day,15,False,1.0
+382,443,1j,yrh5IKPiNZs,4,Grand POOBear,smb1,jungle,day,61,False,1.0
+131,233,nc,yrh5IKPiNZs,2,Grand POOBear,nsmb,castle,day,102,False,1.0
+661,668,nun,yrh5IKPiNZs,6,Grand POOBear,nsmb,underground,night,7,False,1.0
+651,794,wa,-mXxAMAA6-Y,6,Grand POOBear,smw,airship,day,143,True,2.238462605257169
+803,876,3d,-mXxAMAA6-Y,7,Grand POOBear,smb3,desert,day,73,True,1.0363252802116525
+878,954,3dn,-mXxAMAA6-Y,8,Grand POOBear,smb3,desert,night,76,True,0.1980239388939463
+429,491,1g,-mXxAMAA6-Y,4,Grand POOBear,smb1,grass,day,62,True,5.033086444227925
+1366,1454,dh,-mXxAMAA6-Y,12,Grand POOBear,sm3dw,ghosthouse,day,88,True,1.5268525795118346
+1256,1288,1s,-mXxAMAA6-Y,10,Grand POOBear,smb1,sky,day,32,True,1.3921302930843196
+493,641,wh,-mXxAMAA6-Y,5,Grand POOBear,smw,ghosthouse,day,148,True,2.4250011556952664
+956,1234,ng,-mXxAMAA6-Y,9,Grand POOBear,nsmb,grass,day,278,True,7.793166107191626
+2,36,3j,-mXxAMAA6-Y,0,Grand POOBear,smb3,jungle,day,34,True,1.0363252802116525
+151,256,du,-mXxAMAA6-Y,2,Grand POOBear,sm3dw,underground,day,105,True,3.523505952719618
+1998,2038,3hn,-mXxAMAA6-Y,18,Grand POOBear,smb3,ghosthouse,night,40,True,0.1716207470414201
+1751,1770,wj,-mXxAMAA6-Y,14,Grand POOBear,smw,jungle,day,19,True,2.7980782565714613
+1951,1996,3g,-mXxAMAA6-Y,17,Grand POOBear,smb3,grass,day,45,True,3.247152544663177
+1915,1945,nu,-mXxAMAA6-Y,16,Grand POOBear,nsmb,underground,day,30,True,4.974361345015932
+1304,1349,wc,-mXxAMAA6-Y,11,Grand POOBear,smw,castle,day,45,True,5.409617962704825
+301,371,1c,-mXxAMAA6-Y,3,Grand POOBear,smb1,castle,day,70,True,3.105521423034252
+52,131,wcn,-mXxAMAA6-Y,1,Grand POOBear,smw,castle,night,79,True,1.0336849610263996
+1494,1732,nc,-mXxAMAA6-Y,13,Grand POOBear,nsmb,castle,day,238,False,1.0
+1785,1871,3w,-mXxAMAA6-Y,15,Grand POOBear,smb3,underwater,day,86,False,1.0
+177,182,menu,0ZI1hJ2Kalo,5,Raysfire,menu,,,5,True,0.6057692307692308
+283,298,dd,0ZI1hJ2Kalo,8,Raysfire,sm3dw,desert,day,15,True,1.761752976359809
+76,99,1a,0ZI1hJ2Kalo,2,Raysfire,smb1,airship,day,23,True,1.285043347462449
+184,216,wc,0ZI1hJ2Kalo,6,Raysfire,smw,castle,day,32,True,5.409617962704825
+151,175,1s,0ZI1hJ2Kalo,4,Raysfire,smb1,sky,day,24,True,1.3921302930843196
+361,387,wa,0ZI1hJ2Kalo,10,Raysfire,smw,airship,day,26,True,2.238462605257169
+498,528,dh,0ZI1hJ2Kalo,13,Raysfire,sm3dw,ghosthouse,day,30,True,1.5268525795118346
+28,47,di,0ZI1hJ2Kalo,1,Raysfire,sm3dw,ice,day,19,True,1.409402381087847
+412,436,1u,0ZI1hJ2Kalo,11,Raysfire,smb1,underground,day,24,True,3.2126083686561224
+218,256,wd,0ZI1hJ2Kalo,7,Raysfire,smw,desert,day,38,True,2.7980782565714613
+101,140,1u,0ZI1hJ2Kalo,3,Raysfire,smb1,underground,day,39,True,3.2126083686561224
+438,469,dc,0ZI1hJ2Kalo,12,Raysfire,sm3dw,castle,day,31,True,3.4060557542956307
+2,26,1s,0ZI1hJ2Kalo,0,Raysfire,smb1,sky,day,24,False,1.0
+322,359,nc,0ZI1hJ2Kalo,9,Raysfire,nsmb,castle,day,37,False,1.0
+508,563,ng,sibl3_fJTds,6,Grand POOBear,nsmb,grass,day,55,True,7.793166107191626
+1404,1415,ng,sibl3_fJTds,16,Grand POOBear,nsmb,grass,day,11,True,7.793166107191626
+875,1096,ng,sibl3_fJTds,11,Grand POOBear,nsmb,grass,day,221,True,7.793166107191626
+53,204,1u,sibl3_fJTds,1,Grand POOBear,smb1,underground,day,151,True,3.2126083686561224
+1736,1784,dg,sibl3_fJTds,19,Grand POOBear,sm3dw,grass,day,48,True,5.520159325927401
+673,750,ds,sibl3_fJTds,8,Grand POOBear,sm3dw,sky,day,77,True,1.5268525795118346
+2273,2336,nd,sibl3_fJTds,27,Grand POOBear,nsmb,desert,day,63,True,2.487180672507966
+1863,1983,na,sibl3_fJTds,22,Grand POOBear,nsmb,airship,day,120,True,1.9897445380063723
+2064,2209,,sibl3_fJTds,25,Grand POOBear,nsmb,airship,night,145,True,0.3802059626763769
+1434,1562,wi,sibl3_fJTds,17,Grand POOBear,smw,ice,day,128,True,2.238462605257169
+1311,1402,nu,sibl3_fJTds,15,Grand POOBear,nsmb,underground,day,91,True,4.974361345015932
+206,235,1gn,sibl3_fJTds,2,Grand POOBear,smb1,grass,night,29,True,0.9617362632282658
+1233,1278,wi,sibl3_fJTds,13,Grand POOBear,smw,ice,day,45,True,2.238462605257169
+752,820,du,sibl3_fJTds,9,Grand POOBear,sm3dw,underground,day,68,True,3.523505952719618
+1809,1840,njn,sibl3_fJTds,21,Grand POOBear,nsmb,jungle,night,31,True,0.4752574533454712
+1799,1807,nj,sibl3_fJTds,20,Grand POOBear,nsmb,jungle,day,8,True,2.487180672507966
+1581,1734,nc,sibl3_fJTds,18,Grand POOBear,nsmb,castle,day,153,True,4.808549300182067
+237,268,1u,sibl3_fJTds,3,Grand POOBear,smb1,underground,day,31,True,3.2126083686561224
+1985,2028,,sibl3_fJTds,23,Grand POOBear,nsmb,airship,night,43,True,0.3802059626763769
+1110,1225,wd,sibl3_fJTds,12,Grand POOBear,smw,desert,day,115,True,2.7980782565714613
+2236,2264,wu,sibl3_fJTds,26,Grand POOBear,smw,underground,day,28,True,5.5961565131429225
+822,839,ds,sibl3_fJTds,10,Grand POOBear,sm3dw,sky,day,17,False,1.0
+574,658,ng,sibl3_fJTds,7,Grand POOBear,nsmb,grass,day,84,False,1.0
+2030,2062,na,sibl3_fJTds,24,Grand POOBear,nsmb,airship,day,32,False,1.0
+270,280,1gn,sibl3_fJTds,4,Grand POOBear,smb1,grass,night,10,False,1.0
+7,51,1gn,sibl3_fJTds,0,Grand POOBear,smb1,grass,night,44,False,1.0
+1300,1309,ng,sibl3_fJTds,14,Grand POOBear,nsmb,grass,day,9,False,1.0
+298,506,nc,sibl3_fJTds,5,Grand POOBear,nsmb,castle,day,208,False,1.0
+318,324,1gn,bCG_Ex7g9nE,5,Raysfire,smb1,grass,night,6,True,0.9617362632282658
+408,431,ng,bCG_Ex7g9nE,9,Raysfire,nsmb,grass,day,23,True,7.793166107191626
+367,372,1g,bCG_Ex7g9nE,7,Raysfire,smb1,grass,day,5,True,5.033086444227925
+5,39,dd,bCG_Ex7g9nE,0,Raysfire,sm3dw,desert,day,34,True,1.761752976359809
+278,316,dg,bCG_Ex7g9nE,4,Raysfire,sm3dw,grass,day,38,True,5.520159325927401
+329,354,menu,bCG_Ex7g9nE,6,Raysfire,menu,,,25,True,0.6057692307692308
+208,276,ns,bCG_Ex7g9nE,3,Raysfire,nsmb,sky,day,68,True,2.155556582840237
+43,66,dg,bCG_Ex7g9nE,1,Raysfire,sm3dw,grass,day,23,True,5.520159325927401
+433,452,3an,bCG_Ex7g9nE,10,Raysfire,smb3,airship,night,19,True,0.158419151115157
+402,406,njn,bCG_Ex7g9nE,8,Raysfire,nsmb,jungle,night,4,True,0.4752574533454712
+515,569,3c,bCG_Ex7g9nE,12,Raysfire,smb3,castle,day,54,False,1.0
+68,92,nc,bCG_Ex7g9nE,2,Raysfire,nsmb,castle,day,24,False,1.0
+454,503,ns,bCG_Ex7g9nE,11,Raysfire,nsmb,sky,day,49,False,1.0
+571,597,menu,bCG_Ex7g9nE,13,Raysfire,menu,,,26,False,1.0
+181,217,wg,8y54Wlsyte8,4,Raysfire,smw,grass,day,36,True,8.767311870590579
+353,377,wc,8y54Wlsyte8,8,Raysfire,smw,castle,day,24,True,5.409617962704825
+445,453,menu,8y54Wlsyte8,11,Raysfire,menu,,,8,True,0.6057692307692308
+60,72,3g,8y54Wlsyte8,1,Raysfire,smb3,grass,day,12,True,3.247152544663177
+165,179,dg,8y54Wlsyte8,3,Raysfire,sm3dw,grass,day,14,True,5.520159325927401
+240,291,wu,8y54Wlsyte8,5,Raysfire,smw,underground,day,51,True,5.5961565131429225
+379,405,wg,8y54Wlsyte8,9,Raysfire,smw,grass,day,26,True,8.767311870590579
+455,462,wjn,8y54Wlsyte8,12,Raysfire,smw,jungle,night,7,True,0.534664635013655
+295,298,menu,8y54Wlsyte8,6,Raysfire,menu,,,3,True,0.6057692307692308
+410,416,menu,8y54Wlsyte8,10,Raysfire,menu,,,6,True,0.6057692307692308
+94,153,wd,8y54Wlsyte8,2,Raysfire,smw,desert,day,59,True,2.7980782565714613
+489,532,nsn,8y54Wlsyte8,13,Raysfire,nsmb,sky,night,43,True,0.4118897928994083
+299,344,ng,8y54Wlsyte8,7,Raysfire,nsmb,grass,day,45,False,1.0
+543,577,du,8y54Wlsyte8,14,Raysfire,sm3dw,underground,day,34,False,1.0
+5,16,dc,8y54Wlsyte8,0,Raysfire,sm3dw,castle,day,11,False,1.0
+348,360,1d,Ejn1M5ai_iI,6,Raysfire,smb1,desert,day,12,True,1.6063041843280612
+24,65,3d,Ejn1M5ai_iI,1,Raysfire,smb3,desert,day,41,True,1.0363252802116525
+424,477,di,Ejn1M5ai_iI,8,Raysfire,sm3dw,ice,day,53,True,1.409402381087847
+104,136,wc,Ejn1M5ai_iI,3,Raysfire,smw,castle,day,32,True,5.409617962704825
+511,554,wg,Ejn1M5ai_iI,11,Raysfire,smw,grass,day,43,True,8.767311870590579
+479,494,du,Ejn1M5ai_iI,9,Raysfire,sm3dw,underground,day,15,True,3.523505952719618
+362,412,menu,Ejn1M5ai_iI,7,Raysfire,menu,,,50,True,0.6057692307692308
+138,198,dc,Ejn1M5ai_iI,4,Raysfire,sm3dw,castle,day,60,True,3.4060557542956307
+496,509,menu,Ejn1M5ai_iI,10,Raysfire,menu,,,13,True,0.6057692307692308
+260,295,wu,Ejn1M5ai_iI,5,Raysfire,smw,underground,day,35,True,5.5961565131429225
+67,94,menu,Ejn1M5ai_iI,2,Raysfire,menu,,,27,True,0.6057692307692308
+572,586,wg,Ejn1M5ai_iI,12,Raysfire,smw,grass,day,14,True,8.767311870590579
+5,22,ns,Ejn1M5ai_iI,0,Raysfire,nsmb,sky,day,17,False,1.0
+818,852,ws,zXXtMhjoOCU,9,PangeaPanga,smw,sky,day,34,True,2.4250011556952664
+672,726,3g,zXXtMhjoOCU,7,PangeaPanga,smb3,grass,day,54,True,3.247152544663177
+728,774,3u,zXXtMhjoOCU,8,PangeaPanga,smb3,underground,day,46,True,2.072650560423305
+1150,1327,1d,zXXtMhjoOCU,12,PangeaPanga,smb1,desert,day,177,True,1.6063041843280612
+31,93,nhn,zXXtMhjoOCU,1,PangeaPanga,nsmb,ghosthouse,night,62,True,0.4118897928994083
+862,944,ng,zXXtMhjoOCU,10,PangeaPanga,nsmb,grass,day,82,True,7.793166107191626
+1332,1513,ncn,zXXtMhjoOCU,13,PangeaPanga,nsmb,castle,night,181,True,0.9188310764679108
+148,399,wg,zXXtMhjoOCU,4,PangeaPanga,smw,grass,day,251,True,8.767311870590579
+966,1138,1j,zXXtMhjoOCU,11,PangeaPanga,smb1,jungle,day,172,True,1.6063041843280612
+95,100,nin,zXXtMhjoOCU,2,PangeaPanga,nsmb,ice,night,5,True,0.3802059626763769
+413,656,1in,zXXtMhjoOCU,5,PangeaPanga,smb1,ice,night,243,True,0.2455496842284934
+658,670,menu,zXXtMhjoOCU,6,PangeaPanga,menu,,,12,True,0.6057692307692308
+102,146,ws,zXXtMhjoOCU,3,PangeaPanga,smw,sky,day,44,False,1.0
+10,29,nin,zXXtMhjoOCU,0,PangeaPanga,nsmb,ice,night,19,False,1.0
+1871,1948,1s,jI023XwCR04,20,PangeaPanga,smb1,sky,day,77,True,1.3921302930843196
+1141,1305,wu,jI023XwCR04,14,PangeaPanga,smw,underground,day,164,True,5.5961565131429225
+1950,1978,menu,jI023XwCR04,21,PangeaPanga,menu,,,28,True,0.6057692307692308
+323,418,wu,jI023XwCR04,3,PangeaPanga,smw,underground,day,95,True,5.5961565131429225
+837,963,1hn,jI023XwCR04,10,PangeaPanga,smb1,ghosthouse,night,126,True,0.2660121579142012
+1115,1122,na,jI023XwCR04,13,PangeaPanga,nsmb,airship,day,7,True,1.9897445380063723
+480,503,3j,jI023XwCR04,6,PangeaPanga,smb3,jungle,day,23,True,1.0363252802116525
+1324,1434,dc,jI023XwCR04,15,PangeaPanga,sm3dw,castle,day,110,True,3.4060557542956307
+674,820,wa,jI023XwCR04,9,PangeaPanga,smw,airship,day,146,True,2.238462605257169
+264,321,menu,jI023XwCR04,2,PangeaPanga,menu,,,57,True,0.6057692307692308
+424,445,3u,jI023XwCR04,4,PangeaPanga,smb3,underground,day,21,True,2.072650560423305
+1460,1585,1d,jI023XwCR04,17,PangeaPanga,smb1,desert,day,125,True,1.6063041843280612
+1010,1041,,jI023XwCR04,12,PangeaPanga,nsmb,airship,night,31,True,0.3802059626763769
+1716,1850,ng,jI023XwCR04,19,PangeaPanga,nsmb,grass,day,134,True,7.793166107191626
+447,458,3j,jI023XwCR04,5,PangeaPanga,smb3,jungle,day,11,True,1.0363252802116525
+2,62,menu,jI023XwCR04,0,PangeaPanga,menu,,,60,False,1.0
+1615,1701,wc,jI023XwCR04,18,PangeaPanga,smw,castle,day,86,False,1.0
+563,596,3u,jI023XwCR04,7,PangeaPanga,smb3,underground,day,33,False,1.0
+598,656,3u,jI023XwCR04,8,PangeaPanga,smb3,underground,day,58,False,1.0
+987,1008,na,jI023XwCR04,11,PangeaPanga,nsmb,airship,day,21,False,1.0
+1436,1452,menu,jI023XwCR04,16,PangeaPanga,menu,,,16,False,1.0
+64,262,1u,jI023XwCR04,1,PangeaPanga,smb1,underground,day,198,False,1.0
+388,411,3c,h082aQwtlR4,9,Raysfire,smb3,castle,day,23,True,2.0035622084091944
+435,463,dg,h082aQwtlR4,11,Raysfire,sm3dw,grass,day,28,True,5.520159325927401
+60,81,nd,h082aQwtlR4,2,Raysfire,nsmb,desert,day,21,True,2.487180672507966
+4,27,nj,h082aQwtlR4,0,Raysfire,nsmb,jungle,day,23,True,2.487180672507966
+465,493,wh,h082aQwtlR4,12,Raysfire,smw,ghosthouse,day,28,True,2.4250011556952664
+331,386,1u,h082aQwtlR4,8,Raysfire,smb1,underground,day,55,True,3.2126083686561224
+413,433,ni,h082aQwtlR4,10,Raysfire,nsmb,ice,day,20,True,1.9897445380063723
+250,284,3jn,h082aQwtlR4,5,Raysfire,smb3,jungle,night,34,True,0.1980239388939463
+35,58,dg,h082aQwtlR4,1,Raysfire,sm3dw,grass,day,23,True,5.520159325927401
+495,543,ws,h082aQwtlR4,13,Raysfire,smw,sky,day,48,True,2.4250011556952664
+224,248,dg,h082aQwtlR4,4,Raysfire,sm3dw,grass,day,24,True,5.520159325927401
+309,327,di,h082aQwtlR4,7,Raysfire,sm3dw,ice,day,18,False,1.0
+286,307,3h,h082aQwtlR4,6,Raysfire,smb3,ghosthouse,day,21,False,1.0
+107,199,nh,h082aQwtlR4,3,Raysfire,nsmb,ghosthouse,day,92,False,1.0
+1,52,dh,QmVPmh10FVE,0,Raysfire,sm3dw,ghosthouse,day,51,True,1.5268525795118346
+559,589,menu,QmVPmh10FVE,10,Raysfire,menu,,,30,True,0.6057692307692308
+333,356,ds,QmVPmh10FVE,7,Raysfire,sm3dw,sky,day,23,True,1.5268525795118346
+365,412,wg,QmVPmh10FVE,8,Raysfire,smw,grass,day,47,True,8.767311870590579
+125,152,wc,QmVPmh10FVE,2,Raysfire,smw,castle,day,27,True,5.409617962704825
+420,492,ng,QmVPmh10FVE,9,Raysfire,nsmb,grass,day,72,True,7.793166107191626
+309,331,wc,QmVPmh10FVE,6,Raysfire,smw,castle,day,22,True,5.409617962704825
+70,98,3h,QmVPmh10FVE,1,Raysfire,smb3,ghosthouse,day,28,True,0.8981485761834321
+191,239,wc,QmVPmh10FVE,4,Raysfire,smw,castle,day,48,True,5.409617962704825
+154,181,ng,QmVPmh10FVE,3,Raysfire,nsmb,grass,day,27,True,7.793166107191626
+241,276,wg,QmVPmh10FVE,5,Raysfire,smw,grass,day,35,True,8.767311870590579
+417,425,menu,asAgPrbyePY,9,Raysfire,menu,,,8,True,0.6057692307692308
+313,370,dg,asAgPrbyePY,7,Raysfire,sm3dw,grass,day,57,True,5.520159325927401
+67,104,dh,asAgPrbyePY,1,Raysfire,sm3dw,ghosthouse,day,37,True,1.5268525795118346
+461,472,menu,asAgPrbyePY,11,Raysfire,menu,,,11,True,0.6057692307692308
+5,54,wgn,asAgPrbyePY,0,Raysfire,smw,grass,night,49,True,1.6752825230427855
+263,311,ng,asAgPrbyePY,6,Raysfire,nsmb,grass,day,48,True,7.793166107191626
+438,459,wg,asAgPrbyePY,10,Raysfire,smw,grass,day,21,True,8.767311870590579
+372,415,1i,asAgPrbyePY,8,Raysfire,smb1,ice,day,43,True,1.285043347462449
+474,533,1c,asAgPrbyePY,12,Raysfire,smb1,castle,day,59,True,3.1055214230342516
+535,593,wg,asAgPrbyePY,13,Raysfire,smw,grass,day,58,True,8.767311870590579
+595,623,ng,asAgPrbyePY,14,Raysfire,nsmb,grass,day,28,True,7.793166107191626
+143,185,ws,asAgPrbyePY,3,Raysfire,smw,sky,day,42,True,2.4250011556952664
+106,141,dc,asAgPrbyePY,2,Raysfire,sm3dw,castle,day,35,False,1.0
+203,233,dj,asAgPrbyePY,5,Raysfire,sm3dw,jungle,day,30,False,1.0
+187,201,menu,asAgPrbyePY,4,Raysfire,menu,,,14,False,1.0
