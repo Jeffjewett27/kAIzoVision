@@ -105,7 +105,7 @@ def regenerateImageTable():
         glb = glob(os.path.join(relimgdir, filepath + '*.jpg'))
         #print(os.path.relpath(glb[0],imgdir))
         imgs = imgs.append(pd.DataFrame({
-            "Filename": [os.path.relpath(x,imgdir) for x in glb],
+            "Filename": [os.path.relpath(x,imgdir).replace("\\","/") for x in glb],
             "Style": category[0],
             "Theme": category[1],
             "Time": category[2],
