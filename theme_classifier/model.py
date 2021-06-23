@@ -149,7 +149,7 @@ def fit_model(model, train_generator, valid_generator, custom_calls=[]):
     # Helper: TensorBoard
     tensorboard = TensorBoard(log_dir=os.path.join('model', 'logs'))
 
-    csvlog = CSVLogger(file=os.path.join('model','logs','csv-' + date + '.csv'))
+    csvlog = CSVLogger(os.path.join('model','logs','csv-' + date + '.csv'), separator=',', append=False)
 
     model.fit(
         train_generator,
