@@ -1,6 +1,6 @@
 import pandas as pd
 from keras.preprocessing.image import ImageDataGenerator
-from keras.callbacks import ModelCheckpoint, TensorBoard, EarlyStopping
+from keras.callbacks import ModelCheckpoint, TensorBoard, EarlyStopping, CSVLogger
 
 from keras.layers.core import Dense, Dropout, Flatten
 from keras.layers.convolutional import Conv2D, MaxPooling2D
@@ -8,13 +8,14 @@ from keras.layers.convolutional import Conv2D, MaxPooling2D
 from sklearn.preprocessing import MultiLabelBinarizer
 from categories import *
 import numpy as np
-from tensorflow import keras
+import keras
 import tensorflow as tf
 #from tensorflow.keras import layers
 import os
 import sys
 from pathlib import Path
 import logging
+from datetime import datetime
 
 logging.basicConfig(filename='model_debug.log', level=logging.DEBUG)
 
@@ -135,9 +136,10 @@ def prepare_model():
     return model
 
 def fit_model(model, train_generator, valid_generator, custom_calls=[]):
+    date = datetime.now().strftime("%m-%d")
     # Helper: Save the model.
     checkpointer = ModelCheckpoint(
-        filepath=os.path.join('model', 'checkpoints', 'theme.{epoch:03d}-{val_loss:.2f}.hdf5'),
+        filepath=os.path.join('model', 'checkpoints', 'theme.' + date + '.{epoch:03d}-{val_loss:.2f}.hdf5'),
     verbose=1,
     save_best_only=True)
 
@@ -147,13 +149,15 @@ def fit_model(model, train_generator, valid_generator, custom_calls=[]):
     # Helper: TensorBoard
     tensorboard = TensorBoard(log_dir=os.path.join('model', 'logs'))
 
+    csvlog = CSVLogger(file=os.path.join('model','logs','csv-' + date + '.csv'))
+
     model.fit(
         train_generator,
         validation_data = valid_generator,
-        epochs = 20,
-        steps_per_epoch = 2000,
-        validation_steps = 400,
-        callbacks = [checkpointer, early_stopper, tensorboard] + custom_calls
+        epochs = 200,
+        steps_per_epoch = 200,
+        validation_steps = 40,
+        callbacks = [checkpointer, early_stopper, tensorboard, csvlog] + custom_calls
     )
 
 
