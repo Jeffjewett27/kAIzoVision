@@ -2,10 +2,12 @@ import pandas as pd
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint, TensorBoard, EarlyStopping, CSVLogger
 
+from keras import Model, Input
 from keras.layers.core import Dense, Dropout, Flatten
 from keras.layers.convolutional import Conv2D, MaxPooling2D
 
 from sklearn.preprocessing import MultiLabelBinarizer
+from sklearn.preprocessing import LabelBinarizer
 from categories import *
 import numpy as np
 import keras
@@ -71,6 +73,17 @@ def class_accuracy(y_true, y_pred):
     #print(time_sum.numpy())
     return average
     
+def get_one_hots():
+    style_oh = LabelBinarizer()
+    style_oh.fit(list(encode_styles.keys()) + ['Menu'])
+
+    theme_oh = LabelBinarizer()
+    theme_oh.fit(list(encode_themes.keys()) + [''])
+
+    time_oh = LabelBinarizer()
+    time_oh.fit(["day","night",''])
+
+    return (style_oh, theme_oh, time_oh)
 
 # The helper function
 def multilabel_flow_from_dataframe(data_generator, mlb, df):
@@ -84,6 +97,16 @@ def multilabel_flow_from_dataframe(data_generator, mlb, df):
              tup
         )
         yield x, y_multi
+
+# The helper function
+def multioutput_flow_from_dataframe(data_generator, one_hots, df):
+    for x, y in data_generator:
+        indices = y.astype(np.int).tolist()
+        rows = df.iloc[indices]
+        styles = one_hots[0].transform(rows["Style"])
+        themes = one_hots[1].transform(rows["Theme"])
+        times = one_hots[2].transform(rows["Time"])
+        yield x, [styles, themes, times]
 
 # Create the Keras ImageDataGenerator
 image_data_generator = ImageDataGenerator(
@@ -104,34 +127,54 @@ def get_generator(frame,mlb, df):
         batch_size=32,
         shuffle=True
     )
-    return multilabel_flow_from_dataframe(gen, mlb, df)
+    one_hots = get_one_hots()
+    return multioutput_flow_from_dataframe(gen, one_hots, df)
 
 def prepare_model():
-    model = keras.Sequential([
-        # Block One
-        Conv2D(filters=32, kernel_size=3, activation='relu', padding='same',
-                    input_shape=[512,512, 3]),
-        MaxPooling2D(),
+    # model = keras.Sequential([
+    #     # Block One
+    #     Conv2D(filters=32, kernel_size=3, activation='relu', padding='same',
+    #                 input_shape=[512,512, 3]),
+    #     MaxPooling2D(),
 
-        # Block Two
-        Conv2D(filters=64, kernel_size=3, activation='relu', padding='same'),
-        MaxPooling2D(),
+    #     # Block Two
+    #     Conv2D(filters=64, kernel_size=3, activation='relu', padding='same'),
+    #     MaxPooling2D(),
 
-        # Block Three
-        Conv2D(filters=128, kernel_size=3, activation='relu', padding='same'),
-        Conv2D(filters=128, kernel_size=3, activation='relu', padding='same'),
-        MaxPooling2D(),
+    #     # Block Three
+    #     Conv2D(filters=128, kernel_size=3, activation='relu', padding='same'),
+    #     Conv2D(filters=128, kernel_size=3, activation='relu', padding='same'),
+    #     MaxPooling2D(),
 
         
-        Flatten(),
-        Dense(6, activation='relu'),
-        Dropout(0.2),
-        Dense(18, activation='sigmoid'),
-    ])
+    #     Flatten(),
+    #     Dense(6, activation='relu'),
+    #     Dropout(0.2),
+    #     Dense(18, activation='sigmoid'),
+    # ])
+    input_layer = Input(shape=[512,512,3])
+    x = Conv2D(filters=32, kernel_size=3, activation='relu', padding='same')(input_layer)
+    x = MaxPooling2D()(x)
+    x = Conv2D(filters=64, kernel_size=3, activation='relu', padding='same')(x)
+    x = MaxPooling2D()(x)
+    x = Conv2D(filters=128, kernel_size=3, activation='relu', padding='same')(x)
+    x = Conv2D(filters=128, kernel_size=3, activation='relu', padding='same')(x)
+    x = MaxPooling2D()(x)
+    x = Flatten()(x)
+    def get_output_layers(ncat, name, x):
+        y = Dense(units=6, activation='relu')(x)
+        y = Dropout(0.2)(y)
+        y = Dense(ncat, activation='softmax', name=name)(y)
+        return y
+    style_out = get_output_layers(6, "style_out", x)
+    theme_out = get_output_layers(11, "theme_out", x)
+    time_out = get_output_layers(3, "time_out", x)
+
+    model = Model(inputs=input_layer, outputs=[style_out, theme_out, time_out])
     model.compile(
         optimizer=keras.optimizers.Adam(epsilon=0.01),
-        loss='binary_crossentropy',
-        metrics=['binary_accuracy', class_accuracy]
+        loss={'style_out':'categorical_crossentropy', 'theme_out':'categorical_crossentropy', 'time_out':'categorical_crossentropy'},
+        metrics={'style_out':'accuracy', 'theme_out':'accuracy', 'time_out':'accuracy'},
     )
     return model
 
@@ -167,9 +210,13 @@ def get_trained_model(should_train=True, weights=None, custom_calls=[]):
     # Prepare the model
     model = prepare_model()
 
-    if (should_train or weights is None):
+    if (weights is not None):
+        print("loading weights from: " + weights)
+        model.load_weights(weights)
+
+    if (should_train):
         # Read the dataset
-        df = pd.read_csv(table_path)
+        df = pd.read_csv(table_path,keep_default_na=False)
         train_df = df.loc[df['Train'].values]
         valid_df = df[(df['Train'].values) == False]
 
@@ -177,17 +224,17 @@ def get_trained_model(should_train=True, weights=None, custom_calls=[]):
         train_generator = get_generator(train_df, mlb, df)
         valid_generator = get_generator(valid_df, mlb, df)
 
+        _,y = next(iter(train_generator))
+        print(y)
+
         fit_model(model, train_generator, valid_generator, custom_calls)
         model.save("model/theme_"+str(datetime.now()).replace(" ","_")+".h5")
-    else:
-        print("loading weights from: " + weights)
-        model.load_weights(weights)
 
     return model
 
 if __name__ == "__main__":
     weights = None if len(sys.argv) < 2 else sys.argv[1]
-    train = None if len(sys.argv) < 3 else bool(sys.argv[2])
+    train = True if len(sys.argv) < 3 else bool(sys.argv[2])
     model = get_trained_model(train,weights)
         
 
