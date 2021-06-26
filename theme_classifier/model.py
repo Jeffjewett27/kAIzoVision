@@ -124,7 +124,7 @@ def get_generator(frame,mlb, df):
         y_col='index',
         class_mode='raw',
         target_size=(512,512),
-        batch_size=32,
+        batch_size=128,
         shuffle=True
     )
     one_hots = get_one_hots()
@@ -153,7 +153,7 @@ def prepare_model():
     #     Dense(18, activation='sigmoid'),
     # ])
     input_layer = Input(shape=[512,512,3])
-    x = Conv2D(filters=32, kernel_size=3, activation='relu', padding='same')(input_layer)
+    x = Conv2D(filters=32, kernel_size=5, activation='relu', padding='same')(input_layer)
     x = MaxPooling2D()(x)
     x = Conv2D(filters=64, kernel_size=3, activation='relu', padding='same')(x)
     x = MaxPooling2D()(x)
@@ -162,19 +162,19 @@ def prepare_model():
     x = MaxPooling2D()(x)
     x = Flatten()(x)
     def get_output_layers(ncat, name, x):
-        y = Dense(units=6, activation='relu')(x)
-        y = Dropout(0.2)(y)
+        y = Dense(units=16, activation='relu')(x)
+        y = Dense(units=16, activation='relu')(x)
         y = Dense(ncat, activation='softmax', name=name)(y)
         return y
-    style_out = get_output_layers(6, "style_out", x)
-    theme_out = get_output_layers(11, "theme_out", x)
-    time_out = get_output_layers(3, "time_out", x)
+    style_out = get_output_layers(6, "style", x)
+    theme_out = get_output_layers(11, "theme", x)
+    time_out = get_output_layers(3, "time", x)
 
     model = Model(inputs=input_layer, outputs=[style_out, theme_out, time_out])
     model.compile(
         optimizer=keras.optimizers.Adam(epsilon=0.01),
-        loss={'style_out':'categorical_crossentropy', 'theme_out':'categorical_crossentropy', 'time_out':'categorical_crossentropy'},
-        metrics={'style_out':'accuracy', 'theme_out':'accuracy', 'time_out':'accuracy'},
+        loss={'style':'categorical_crossentropy', 'theme':'categorical_crossentropy', 'time':'categorical_crossentropy'},
+        metrics={'style':'accuracy', 'theme':'accuracy', 'time':'accuracy'},
     )
     return model
 
