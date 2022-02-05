@@ -124,7 +124,7 @@ def get_generator(frame,mlb, df):
         y_col='index',
         class_mode='raw',
         target_size=(512,512),
-        batch_size=128,
+        batch_size=16,
         shuffle=True
     )
     one_hots = get_one_hots()
