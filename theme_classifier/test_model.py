@@ -10,7 +10,7 @@ def display_classification_sample(model, imgs, n):
     print("displaying " + str(n) + " imgs")
     mlb = get_multilabelbinarizer()
     samp = imgs.sample(n=n).reset_index().drop("level_0",axis=1)
-
+    print(samp)
     img_list = []
     for i in range(n):
         fname = os.path.join(imagedir, samp.loc[i,"Filename"])
@@ -41,7 +41,7 @@ if __name__ == "__main__":
         sys.exit(1)
     n = int(sys.argv[1])
     weights = sys.argv[2]
-    model = get_trained_model(weights)
+    model = get_trained_model(False, weights)
     imgs = pd.read_csv(table_path)
     display_classification_sample(model, imgs, n)
 
