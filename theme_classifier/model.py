@@ -20,6 +20,10 @@ from pathlib import Path
 import logging
 from datetime import datetime
 
+physical_devices = tf.config.list_physical_devices('GPU')
+if len(physical_devices) > 0:
+    tf.config.experimental.set_memory_growth(physical_devices[0], True)
+
 logging.basicConfig(filename='model_debug.log', level=logging.DEBUG)
 
 table_path = os.path.join(Path(__file__).parent, 'video_data', 'sampledImages.csv')
