@@ -10,7 +10,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.preprocessing import LabelBinarizer
 from categories import *
 import numpy as np
-import keras
+import tensorflow.keras as keras
 import tensorflow as tf
 #from tensorflow.keras import layers
 import os
@@ -223,9 +223,6 @@ def get_trained_model(should_train=True, weights=None, custom_calls=[]):
         #get the generators
         train_generator = get_generator(train_df, mlb, df)
         valid_generator = get_generator(valid_df, mlb, df)
-
-        _,y = next(iter(train_generator))
-        print(y)
 
         fit_model(model, train_generator, valid_generator, custom_calls)
         model.save("model/theme_"+str(datetime.now()).replace(" ","_")+".h5")
