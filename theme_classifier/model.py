@@ -5,6 +5,7 @@ from keras.callbacks import ModelCheckpoint, TensorBoard, EarlyStopping, CSVLogg
 from keras import Model, Input
 from keras.layers.core import Dense, Dropout, Flatten
 from keras.layers.convolutional import Conv2D, MaxPooling2D
+from tensorflow.keras import layers
 
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.preprocessing import LabelBinarizer
@@ -130,40 +131,32 @@ def get_generator(frame,mlb, df):
     one_hots = get_one_hots()
     return multioutput_flow_from_dataframe(gen, one_hots, df)
 
+def res_net_block(input_data, filters, conv_size):
+  x = layers.Conv2D(filters, conv_size, activation='relu', padding='same')(input_data)
+  x = layers.BatchNormalization()(x)
+  x = layers.Conv2D(filters, conv_size, activation=None, padding='same')(x)
+  x = layers.BatchNormalization()(x)
+  x = layers.Add()([x, input_data])
+  x = layers.Activation('relu')(x)
+  return x
+
 def prepare_model():
-    # model = keras.Sequential([
-    #     # Block One
-    #     Conv2D(filters=32, kernel_size=3, activation='relu', padding='same',
-    #                 input_shape=[512,512, 3]),
-    #     MaxPooling2D(),
-
-    #     # Block Two
-    #     Conv2D(filters=64, kernel_size=3, activation='relu', padding='same'),
-    #     MaxPooling2D(),
-
-    #     # Block Three
-    #     Conv2D(filters=128, kernel_size=3, activation='relu', padding='same'),
-    #     Conv2D(filters=128, kernel_size=3, activation='relu', padding='same'),
-    #     MaxPooling2D(),
-
-        
-    #     Flatten(),
-    #     Dense(6, activation='relu'),
-    #     Dropout(0.2),
-    #     Dense(18, activation='sigmoid'),
-    # ])
     input_layer = Input(shape=[512,512,3])
-    x = Conv2D(filters=32, kernel_size=5, activation='relu', padding='same')(input_layer)
-    x = MaxPooling2D()(x)
-    x = Conv2D(filters=64, kernel_size=3, activation='relu', padding='same')(x)
-    x = MaxPooling2D()(x)
-    x = Conv2D(filters=128, kernel_size=3, activation='relu', padding='same')(x)
-    x = Conv2D(filters=128, kernel_size=3, activation='relu', padding='same')(x)
-    x = MaxPooling2D()(x)
-    x = Flatten()(x)
+    x = layers.Conv2D(32, 7, strides=(2,2), activation='relu')(input_layer)
+    x = layers.Conv2D(64, 3, strides=(2,2), activation='relu')(x)
+    x = layers.MaxPooling2D()(x)
+    num_res_net_blocks = 3
+    for i in range(num_res_net_blocks):
+        x = res_net_block(x, 64, 3)
+    x = layers.Conv2D(64, 3, activation='relu')(x)
+    x = layers.GlobalAveragePooling2D()(x)
+    #x = Flatten()(x)
+    x = layers.Dense(256, activation='relu')(x)
+    x = layers.Dropout(0.5)(x)
+    
     def get_output_layers(ncat, name, x):
-        y = Dense(units=16, activation='relu')(x)
-        y = Dense(units=16, activation='relu')(x)
+        y = Dense(units=64, activation='relu')(x)
+        y = Dense(units=64, activation='relu')(x)
         y = Dense(ncat, activation='softmax', name=name)(y)
         return y
     style_out = get_output_layers(6, "style", x)
@@ -209,6 +202,9 @@ def get_trained_model(should_train=True, weights=None, custom_calls=[]):
 
     # Prepare the model
     model = prepare_model()
+
+    print(model.summary())
+    return
 
     if (weights is not None):
         print("loading weights from: " + weights)
