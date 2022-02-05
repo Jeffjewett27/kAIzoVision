@@ -208,7 +208,7 @@ def get_trained_model(should_train=True, weights=None, custom_calls=[]):
     model = prepare_model()
 
     print(model.summary())
-    return
+    #return
 
     if (weights is not None):
         print("loading weights from: " + weights)
