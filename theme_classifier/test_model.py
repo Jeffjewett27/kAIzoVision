@@ -22,7 +22,7 @@ def display_classification_sample(model, imgs, n):
     print(outputs)
 
     one_hots = get_one_hots()
-    print(one_hots[0].categories)
+    print(one_hots[0].get_classes())
     classes = mlb_inverse_transform_batch(outputs, one_hots)
     print(classes)
 

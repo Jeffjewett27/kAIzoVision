@@ -1,3 +1,5 @@
+from ast import Or
+from typing import Tuple
 import pandas as pd
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint, TensorBoard, EarlyStopping, CSVLogger
@@ -9,6 +11,9 @@ from tensorflow.keras import layers
 
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
+
+from ordered_label_binarizer import OrderedLabelBinarizer
+
 from categories import *
 import numpy as np
 import tensorflow.keras as keras
@@ -51,18 +56,15 @@ def mlb_inverse_transform(pred):
     binarized = np.expand_dims(binarized, axis=0)
     return binarized
 
-def mlb_inverse_transform_batch(preds, one_hots):
-    nstyles = len(decode_styles.values()) + 1
-    nthemes = len(decode_themes.values())
-    ntime = 2
-    style = np.argmax(preds[0],axis=1).astype(np.int8)
-    theme = np.argmax(preds[1],axis=1).astype(np.int8)
-    time = np.argmax(preds[2],axis=1).astype(np.int8)
-    
-    style_class = np.apply_along_axis(np.vectorize(lambda i: one_hots[0].categories[i]), 0, style)
-    theme_class = np.apply_along_axis(np.vectorize(lambda i: one_hots[1].categories[i]), 0, theme)
-    time_class = np.apply_along_axis(np.vectorize(lambda i: one_hots[2].categories[i]), 0, time)
-    return list(zip(style_class, theme_class, time_class))
+def mlb_inverse_transform_batch(preds: np.ndarray, one_hots: Tuple[OrderedLabelBinarizer, OrderedLabelBinarizer, OrderedLabelBinarizer]):
+    style_indices = np.argmax(preds[0],axis=1)
+    theme_indices = np.argmax(preds[1],axis=1)
+    time_indices = np.argmax(preds[2],axis=1)
+
+    style_classes = one_hots[0].inverse_transform_indices(style_indices)
+    theme_classes = one_hots[1].inverse_transform_indices(theme_indices)
+    time_classes = one_hots[2].inverse_transform_indices(time_indices)
+    return list(zip(style_classes, theme_classes, time_classes))
 
 def class_accuracy(y_true, y_pred):    
     style_slice_pred = tf.argmax(y_pred[:,0:6], axis=1)
@@ -92,11 +94,11 @@ def class_accuracy(y_true, y_pred):
     return average
     
 def get_one_hots():
-    style_oh = OneHotEncoder(categories=list(encode_styles.keys()) + ['menu'])
+    style_oh = OrderedLabelBinarizer(list(encode_styles.keys()) + ['menu'])
+    
+    theme_oh = OrderedLabelBinarizer(list(encode_themes.keys()) + [''])
 
-    theme_oh = OneHotEncoder(categories=list(encode_themes.keys()) + [''])
-
-    time_oh = OneHotEncoder(categories=["day","night",''])
+    time_oh = OrderedLabelBinarizer(["day","night",''])
 
     return (style_oh, theme_oh, time_oh)
 
