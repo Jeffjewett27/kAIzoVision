@@ -1,4 +1,4 @@
-from model import get_trained_model, get_multilabelbinarizer, table_path, imagedir, mlb_inverse_transform
+from model import get_trained_model, get_multilabelbinarizer, table_path, imagedir, mlb_inverse_transform_batch, get_one_hots
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -14,25 +14,26 @@ def display_classification_sample(model, imgs, n):
     img_list = []
     for i in range(n):
         fname = os.path.join(imagedir, samp.loc[i,"Filename"])
-        img = plt.imread(fname)/255.
+        img = plt.imread(fname)
         img_list.append(img)
     img_list.append(np.zeros((512,512,3)))
     imgs = np.asarray(img_list)
     outputs = model.predict(imgs)
     print(outputs)
-    return
+
+    one_hots = get_one_hots()
+    print(one_hots[0].categories)
+    classes = mlb_inverse_transform_batch(outputs, one_hots)
+    print(classes)
+
     for i in range(n):
 
-        multihot = model.predict(imgin,verbose=1)[0]
-        print("multi",multihot)
-        binarized = mlb_inverse_transform(multihot)
-        print(binarized)
-        print(mlb.classes)
-        label = mlb.inverse_transform(binarized)[0]
-        print(label)
+        #multihot = model.predict(imgin,verbose=1)[0]
+        #print("multi",multihot)
+        print(classes[i])
 
-        plt.imshow(img)
-        plt.title(label)
+        plt.imshow(img_list[i])
+        plt.title(classes[i])
         plt.show()
 
 if __name__ == "__main__":

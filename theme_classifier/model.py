@@ -8,7 +8,7 @@ from keras.layers.convolutional import Conv2D, MaxPooling2D
 from tensorflow.keras import layers
 
 from sklearn.preprocessing import MultiLabelBinarizer
-from sklearn.preprocessing import LabelBinarizer
+from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 from categories import *
 import numpy as np
 import tensorflow.keras as keras
@@ -51,6 +51,19 @@ def mlb_inverse_transform(pred):
     binarized = np.expand_dims(binarized, axis=0)
     return binarized
 
+def mlb_inverse_transform_batch(preds, one_hots):
+    nstyles = len(decode_styles.values()) + 1
+    nthemes = len(decode_themes.values())
+    ntime = 2
+    style = np.argmax(preds[0],axis=1).astype(np.int8)
+    theme = np.argmax(preds[1],axis=1).astype(np.int8)
+    time = np.argmax(preds[2],axis=1).astype(np.int8)
+    
+    style_class = np.apply_along_axis(np.vectorize(lambda i: one_hots[0].categories[i]), 0, style)
+    theme_class = np.apply_along_axis(np.vectorize(lambda i: one_hots[1].categories[i]), 0, theme)
+    time_class = np.apply_along_axis(np.vectorize(lambda i: one_hots[2].categories[i]), 0, time)
+    return list(zip(style_class, theme_class, time_class))
+
 def class_accuracy(y_true, y_pred):    
     style_slice_pred = tf.argmax(y_pred[:,0:6], axis=1)
     style_slice_true = tf.argmax(y_true[:,0:6], axis=1)
@@ -79,14 +92,11 @@ def class_accuracy(y_true, y_pred):
     return average
     
 def get_one_hots():
-    style_oh = LabelBinarizer()
-    style_oh.fit(list(encode_styles.keys()) + ['Menu'])
+    style_oh = OneHotEncoder(categories=list(encode_styles.keys()) + ['menu'])
 
-    theme_oh = LabelBinarizer()
-    theme_oh.fit(list(encode_themes.keys()) + [''])
+    theme_oh = OneHotEncoder(categories=list(encode_themes.keys()) + [''])
 
-    time_oh = LabelBinarizer()
-    time_oh.fit(["day","night",''])
+    time_oh = OneHotEncoder(categories=["day","night",''])
 
     return (style_oh, theme_oh, time_oh)
 
@@ -149,7 +159,7 @@ def prepare_model():
     x = layers.Conv2D(32, 7, strides=(2,2), activation='relu')(input_layer)
     x = layers.Conv2D(64, 3, strides=(2,2), activation='relu')(x)
     x = layers.MaxPooling2D()(x)
-    num_res_net_blocks = 3
+    num_res_net_blocks = 5
     for i in range(num_res_net_blocks):
         x = res_net_block(x, 64, 3)
     x = layers.Conv2D(64, 3, activation='relu')(x)
@@ -160,7 +170,9 @@ def prepare_model():
     
     def get_output_layers(ncat, name, x):
         y = Dense(units=64, activation='relu')(x)
-        y = Dense(units=64, activation='relu')(x)
+        y = layers.Dropout(0.2)(y)
+        y = Dense(units=128, activation='relu')(y)
+        y = Dense(units=64, activation='relu')(y)
         y = Dense(ncat, activation='softmax', name=name)(y)
         return y
     style_out = get_output_layers(6, "style", x)
